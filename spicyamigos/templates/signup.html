@@ -32,12 +32,7 @@
         <form action="" method="POST">
             {%csrf_token%}
           <div class="mb-6">
-            <label class="block mb-2 text-coolGray-800 font-medium" for="">Username</label>
-            <input class="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50" type="text" placeholder="username" required name="username">
-          </div>
-          <div class="mb-4">
-            <label class="block mb-2 text-coolGray-800 font-medium" for="">Password</label>
-            <input class="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50" type="password" placeholder="************" required name="password">
+              {{form.as_p}}
           </div>
           <button type="submit" class="inline-block py-3 px-7 mb-6 w-full text-base text-red-50 font-medium text-center leading-6 bg-red-500 hover:bg-red-600 focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 rounded-md shadow-sm" >Sign Up</button>
           <p class="text-center">
