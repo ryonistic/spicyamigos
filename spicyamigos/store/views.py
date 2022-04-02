@@ -6,3 +6,7 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     """Home page for store"""
     return render(request, 'store_home.html',{} )
+
+def menu(request):
+    """Shows all the menu items"""
+    return render(request, 'menu.html', {})
