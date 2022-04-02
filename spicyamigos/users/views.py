@@ -7,19 +7,23 @@ from .forms import UserRegisterForm
 
 def login(request):
     """if user posts data, check if it is valid"""
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            logthemin(request, user)
-            messages.success(request, 'Authentication successful')
-            return redirect('store_home')
+    if not request.user.is_authenticated:
+        if request.method == "POST":
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                logthemin(request, user)
+                messages.success(request, 'Authentication successful')
+                return redirect('store_home')
+            else:
+                messages.success(request, 'Authentication error. Try again.')
+                return redirect('login')
         else:
-            messages.success(request, 'Authentication error. Try again.')
-            return redirect('login')
+            return render(request, 'login.html', {})
     else:
-        return render(request, 'login.html', {})
+        messages.success(request, 'You are already logged in.')
+        return redirect('store_home')
 
 def logout(request):
     logthemout(request)

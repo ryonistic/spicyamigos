@@ -1,8 +1,7 @@
 """User related models defined here."""
+import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-import uuid
-
 
 class User(AbstractUser):
     """Custom user model defined here."""
