@@ -1,19 +1,20 @@
-import Link from 'next/link'
+import Head from 'next/head'
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
+
 export default function Home() {
   return (
-    <div>
-        <h1 className="title">
-  Read{' '}
-  <Link href="/main/main">
-    <a>this page!</a>
-  </Link>
-</h1>
-
-        <ul>
-            <li><Link href="/"><a>Home</a></Link></li>
-            <li><Link href="/menu"><a>Menu</a></Link></li>
-            <li><Link href="/"><a>Orders</a></Link></li>
-            <li><Link href="/"><a>About Us</a></Link></li>
-        </ul>
-      </div>
-  )}
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <section className={utilStyles.headingMd}>
+        <p>What Is a War Crime? For nearly as long as there has been war, attempts have been made to govern its conduct</p>
+        <p>
+          (This is a sample website - you’ll be building a site like this on{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+        </p>
+      </section>
+    </Layout>
+  )
+}
