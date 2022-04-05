@@ -17,7 +17,17 @@ from decouple import config as secret_manager
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, os.path.join(BASE_DIR, 'spicyamigos'))
+
+"""This is important. When appending a path, it may not work on a development
+server, if you use a sys.path.insert on the other hand
+it may work because you are putting spicyamigos on the
+beginning of the "search" path. You may try append too,
+just in case it works. Just make sure there is no other
+module named as spicyamigos, in this case, the repository root
+folder itself is called spicyamigos just like the project_root."""
+
+# sys.path.insert(0, os.path.join(BASE_DIR, 'spicyamigos'))
+sys.path.append(str(BASE_DIR / 'spicyamigos'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -42,6 +52,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
     'store.apps.StoreConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
