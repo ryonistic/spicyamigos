@@ -1,0 +1,24 @@
+{%load static%}
+      <section class="bg-white">
+  <nav class="flex justify-between p-6 px-4">
+    <div class="flex justify-between items-center w-full">
+      <div class="xl:w-1/3">
+        <a class="block max-w-max" href="#">
+            <img class="h-10" src="{%static 'images/logo.png' %}" alt="">
+        </a>
+      </div>
+      <div class="hidden xl:block xl:w-1/3">
+        <ul class="flex justify-center">
+            <li class="mr-12"><a class="text-coolGray-500 hover:text-coolGray-900 font-medium" href="{%url 'store_home'%}">Home</a></li>
+            <li class="mr-12"><a class="text-coolGray-500 hover:text-coolGray-900 font-medium" href="{%url 'menu'%}">Menu</a></li>
+            <li class="mr-12"><a class="text-coolGray-500 hover:text-coolGray-900 font-medium" href="{% url 'blog_home' %}">Blog</a></li>
+          <li><a class="text-coolGray-500 hover:text-coolGray-900 font-medium" href="{%url 'about'  %}">About</a></li>
+        </ul>
+      </div>
+      <div class="hidden xl:block xl:w-1/3">
+          <div class="flex items-center justify-end">{% if not user.is_authenticated %}<a class="inline-block py-2 px-4 mr-2 leading-5 text-coolGray-500 hover:text-coolGray-900 bg-transparent font-medium rounded-md" href="{% url 'login' %}">Log In</a><a class="inline-block py-2 px-4 text-sm leading-5 font-medium focus:ring-2 focus:ring-opacity-50 rounded-md bg-red-600 hover:bg-red-800 focus:ring-white text-white" href="{%url 'signup'%}">Sign Up</a>{% else %}<a class="inline-block py-2 px-4 mr-2 leading-5 text-coolGray-500 hover:text-coolGray-900 bg-transparent font-medium rounded-md" href="{% url 'logout' %}">Log out</a>{% endif %}</div>
+      </div>
+    </div>
+  </nav>
+</section>
+ 

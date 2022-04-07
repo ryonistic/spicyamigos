@@ -5,6 +5,7 @@ instead of django.views.generic or object_list(s) etc"""
 from rest_framework import generics
 from store.models import Item
 from .serializers import ItemSerializer
+from django.contrib.auth.views import auth_login
 
 
 class ItemAPIView(generics.ListAPIView):

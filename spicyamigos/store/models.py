@@ -1,5 +1,6 @@
 """logic for dishes and their categories"""
 from django.db import models
+from PIL import Image
 
 class Tag(models.Model):
     """There can be only one category like
@@ -20,5 +21,13 @@ class Item(models.Model):
     is_vegan = models.BooleanField(default=False)
     is_deliverable = models.BooleanField(default=True)
     is_featured = models.BooleanField(default=False)
+    image = models.ImageField(default="default.jpg")
     def __str__(self):
         return str(self.name)
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        image = Image.open(self.image.path)
+        if image.height > 700 or image.width > 700:
+            output_size = (700, 700)
+            image.thumbnail(output_size)
+            image.save(self.image.path)
