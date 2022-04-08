@@ -12,6 +12,7 @@ class ItemSerializer(serializers.ModelSerializer):
         module"""
         model = Item
         fields = (
+            'id',
             'name',
             'description',
             'price',

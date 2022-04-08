@@ -16,7 +16,7 @@ function Home({ items }) {
 
       <div className="container-fluid p-2 m-2 flex flex-wrap">
       {items.map((item) => (
-          <div>
+          <div key={item.id}>
     <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
         <Image src="/images/lava.jpg"
       alt="Picture of food"
