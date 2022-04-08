@@ -6,6 +6,10 @@ import Navbar from '../components/navbar.js'
 import ItemsList from '../components/items_list'
 import Banner from '../components/banner'
 
+const myLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`
+}
+
 function Home({ items }) {
    return (
       <>
@@ -18,11 +22,12 @@ function Home({ items }) {
       {items.map((item) => (
           <div key={item.id}>
     <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <Image src="/images/lava.jpg"
-      alt="Picture of food"
-            className = "w-full"
+        <Image 
+      loader={myLoader}
+      src={item.image}
+      alt="Picture of the author"
       width={500}
-      height={500}
+      height={400}
     />
       <div className="px-6 py-4">
  
@@ -46,7 +51,7 @@ function Home({ items }) {
 // This gets called on every request
  export async function getStaticProps() {
   // Fetch data from external API
-  const res = await fetch('http://127.0.0.1:8000/api/')
+  const res = await fetch('http://127.0.0.1:8000/api/v1/')
   const items = await res.json()
 
 // Pass data to the page via props

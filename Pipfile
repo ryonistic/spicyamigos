@@ -10,6 +10,8 @@ python-decouple = "*"
 djangorestframework = "*"
 pillow = "*"
 django-cors-headers = "*"
+dj-rest-auth = "*"
+django-allauth = "*"
 
 [dev-packages]
 

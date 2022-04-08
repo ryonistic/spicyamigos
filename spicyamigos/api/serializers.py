@@ -20,4 +20,5 @@ class ItemSerializer(serializers.ModelSerializer):
             'tags',
             'is_vegan',
             'is_deliverable',
-            'is_featured')
+            'is_featured',
+        'image',)
