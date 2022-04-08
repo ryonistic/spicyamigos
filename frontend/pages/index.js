@@ -13,15 +13,20 @@ const myLoader = ({ src, width, quality }) => {
 function Home({ items }) {
    return (
       <>
+    <Head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SpicyAmigos - Home</title>
+    </Head>
   <Navbar />
       <Layout />
           <Banner />
           <ItemsList />
 
-      <div className="container-fluid p-2 m-2 flex flex-wrap">
+      <div className="container-fluid bg-gray-100 justify-center p-2 m-2 flex flex-wrap">
       {items.map((item) => (
           <div key={item.id}>
-    <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
+    <div className="max-w-sm rounded bg-white overflow-hidden shadow-lg m-4">
         <Image 
       loader={myLoader}
       src={item.image}
@@ -32,11 +37,11 @@ function Home({ items }) {
       <div className="px-6 py-4">
  
         <div className="font-bold text-xl mb-2"> {item.name} </div>
-        <p className="text-gray-700 text-base">{item.description}
+        <p className="text-gray-700 text-base h-48">{item.description}
         </p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{item.tags}</span>
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{item.category_name}</span>
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${item.price}</span>
       </div>
     </div>

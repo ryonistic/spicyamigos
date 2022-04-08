@@ -69,7 +69,7 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ]
 }
 
@@ -168,4 +168,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 print ("BASE_DIR path", BASE_DIR)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 SITE_ID = 1 # new
-
