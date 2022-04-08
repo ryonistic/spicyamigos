@@ -15,7 +15,6 @@ return (
                 <li className="items-center text-white p-2 m-2">Contact</li>
                 <li className="items-center text-white p-2 m-2">About</li>
             </ul>
-
         </div>
 )
 }
