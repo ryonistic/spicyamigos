@@ -49,12 +49,34 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites',
+
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    'allauth', # new
+    'allauth.account', # new
+    'allauth.socialaccount', # new
+    'dj_rest_auth',
+    'dj_rest_auth.registration', # new
+
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
     'store.apps.StoreConfig',
-    'rest_framework',
     'corsheaders',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    'http://localhost:8000',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,11 +89,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'spicyamigos', 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR,],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,18 +165,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'store_home'
 print ("BASE_DIR path", BASE_DIR)
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
-}
-
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    'http://localhost:8000',
-)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
+SITE_ID = 1 # new
 

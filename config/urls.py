@@ -20,8 +20,10 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('store.urls')),
     path('users/', include('users.urls')),
     path('blog/', include('blog.urls')),
-    path('api/', include('api.urls')),
+    path('api/v1/', include('api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')), # new
+    path('api/v1/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
