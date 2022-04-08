@@ -1,4 +1,5 @@
 Author: Ramsharan Kanwar
+SpicyAmigos
 --------------------------------------------------
 <p>Restaurant website for ordering food or booking table reservations.</p>
 <strong>This is a sample piece of code for my portfolio. </strong>
