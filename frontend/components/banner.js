@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Banner() {
   return (
-      <div className="container-fluid p-2 m-2">
+      <div className="container-fluid p-4 m-4">
  <section className="relative bg-white overflow-hidden">
   <div className="py-20 md:py-28">
     <div className="container px-4 mx-auto">
