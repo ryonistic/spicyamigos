@@ -14,7 +14,7 @@ function Home({ items }) {
    return (
       <>
     <Head>
-    <meta charset="utf-8" />
+    <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SpicyAmigos - Home</title>
     </Head>
@@ -30,7 +30,7 @@ function Home({ items }) {
         <Image 
       loader={myLoader}
       src={item.image}
-      alt="Picture of the author"
+      alt="Picture of the item"
       width={500}
       height={400}
     />

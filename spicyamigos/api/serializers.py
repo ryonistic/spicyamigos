@@ -2,12 +2,21 @@
 JSON and then that makes it easier for APIView to use it"""
 from rest_framework import serializers
 from store.models import Item, Tag
+from blog.models import Post
+from django.contrib.auth import get_user_model
 
 class TagSerializer(serializers.ModelSerializer):
     category = serializers.CharField(read_only=True)
 
     class Meta:
         model = Tag
+
+class UserSerializer(serializers.ModelSerializer):
+    user = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = get_user_model()
+
 
 
 class ItemSerializer(serializers.ModelSerializer):
@@ -28,3 +37,12 @@ class ItemSerializer(serializers.ModelSerializer):
             'is_vegan',
             'is_deliverable',
             'image',)
+
+class PostSerializer(serializers.ModelSerializer):
+    """Setting up the Post model as a serialized
+    entry in DRF"""
+    author = serializers.CharField(source='author.username', read_only=True)
+    class Meta:
+        model = Post
+        fields = ('id', 'author', 'title', 'content', 'date_posted',)
+

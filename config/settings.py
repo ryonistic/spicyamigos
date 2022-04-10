@@ -58,11 +58,13 @@ INSTALLED_APPS = [
     'allauth', # new
     'allauth.account', # new
     'allauth.socialaccount', # new
+    'allauth.socialaccount.providers.facebook',
     'dj_rest_auth',
     'dj_rest_auth.registration', # new
 
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
+    'api.apps.ApiConfig',
     'store.apps.StoreConfig',
     'corsheaders',
 ]
@@ -70,7 +72,11 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+'rest_framework.authentication.SessionAuthentication',
+'rest_framework.authentication.TokenAuthentication', # new
+],
 }
 
 CORS_ORIGIN_WHITELIST = (

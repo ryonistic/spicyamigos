@@ -10,8 +10,8 @@ python-decouple = "*"
 djangorestframework = "*"
 pillow = "*"
 django-cors-headers = "*"
-dj-rest-auth = "*"
 django-allauth = "*"
+dj-rest-auth = {extras = ["with_social"], version = "*"}
 
 [dev-packages]
 

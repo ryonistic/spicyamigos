@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "846a33a78d70a0ccf063ddcb37d586c4f8dd02ac3e51f4a439ec3c76c27b6f9e"
+            "sha256": "fae1ac72a47ebf01e9135d95116804eee987af62751abe444e74410e99367709"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -128,6 +128,9 @@
             "version": "==0.7.1"
         },
         "dj-rest-auth": {
+            "extras": [
+                "with_social"
+            ],
             "hashes": [
                 "sha256:cf15155756b60a02842c54af62a213975c4eed250a2cce5d31b80dc6cf8592f1"
             ],
