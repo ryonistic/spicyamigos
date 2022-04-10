@@ -5,6 +5,8 @@ instead of django.views.generic or object_list(s) etc"""
 from rest_framework import generics, permissions
 from store.models import Item
 from .serializers import ItemSerializer
+#from allauth.socialaccount.providers.facebook.views import FacebookOaut2Adapter
+#from dj_rest_auth.registration.views import SocialLoginView
 # from django.contrib.auth.views import auth_login
 
 
@@ -15,3 +17,7 @@ class ItemAPIView(generics.ListAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
+
+
+#class FacebookLogin(SocialLoginView):
+#    adapter_class = FacebookOAuth2Adapter

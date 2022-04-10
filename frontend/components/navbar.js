@@ -9,11 +9,17 @@ return (
                 <a>Home</a>
                     </Link></li>
                 <li className="items-center text-white p-2 m-2">
-                    <Link href="/services">
-                <a>Services</a>
+                    <Link href="/blog">
+                <a>Blog</a>
                     </Link></li>
-                <li className="items-center text-white p-2 m-2">Contact</li>
-                <li className="items-center text-white p-2 m-2">About</li>
+                <li className="items-center text-white p-2 m-2">
+                    <Link href="/orders">
+                <a>Orders</a>
+                    </Link></li>
+                <li className="items-center text-white p-2 m-2">
+                    <Link href="/about">
+                <a>About</a>
+                    </Link></li>
             </ul>
         </div>
 )
