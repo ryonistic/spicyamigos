@@ -12,6 +12,10 @@ pillow = "*"
 django-cors-headers = "*"
 django-allauth = "*"
 dj-rest-auth = {extras = ["with_social"], version = "*"}
+djangorestframework-simplejwt = "*"
+pyyaml = "*"
+uritemplate = "*"
+drf-yasg = "*"
 
 [dev-packages]
 

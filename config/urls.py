@@ -12,18 +12,44 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    Swagger permissions are kept IsAdminUser for now.
 """
 from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view # new
+from drf_yasg import openapi # new
+from users import views as user_views
+
+schema_view = get_schema_view( # new
+openapi.Info(
+title="SpicyAmigos API",
+default_version="v1",
+description="SpicyAmigos schema_view with Swagger",
+terms_of_service="https://www.google.com/policies/terms/",
+contact=openapi.Contact(email="hello@example.com"),
+license=openapi.License(name="BSD License"),
+),
+public=True,
+permission_classes=(permissions.IsAdminUser,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
+    path('login/', user_views.login_view, name="login_view"),
+    path('logout/', user_views.logout_view, name="logout_view"),
     path('api_system/blog/', include('blog.urls')),
     path('api/v1/', include('api.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')), # new
+    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
     path('api/v1/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('api/v1/dj-rest-auth/registration/',
+    include('dj_rest_auth.registration.urls')),
+    path('swagger/', schema_view.with_ui(
+    'swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui(
+    'redoc', cache_timeout=0), name='schema-redoc'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
