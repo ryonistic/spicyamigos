@@ -17,7 +17,3 @@ class ItemAPIView(generics.ListAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
-
-
-#class FacebookLogin(SocialLoginView):
-#    adapter_class = FacebookOAuth2Adapter
