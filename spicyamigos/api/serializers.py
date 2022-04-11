@@ -17,8 +17,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
 
-
-
 class ItemSerializer(serializers.ModelSerializer):
     """Serializer manages the fields that are going
     to be sent as JSON data"""
@@ -45,4 +43,3 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('id', 'author', 'title', 'content', 'date_posted', 'image',)
-
