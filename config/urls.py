@@ -21,6 +21,7 @@ from django.conf import settings
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view # new
 from drf_yasg import openapi # new
+from users import views as user_views
 
 schema_view = get_schema_view( # new
 openapi.Info(
@@ -38,6 +39,8 @@ permission_classes=(permissions.IsAdminUser,),
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
+    path('login/', user_views.login_view, name="login_view"),
+    path('logout/', user_views.logout_view, name="logout_view"),
     path('api_system/blog/', include('blog.urls')),
     path('api/v1/', include('api.urls')),
     path('api-auth/', include('rest_framework.urls')),

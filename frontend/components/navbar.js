@@ -20,6 +20,11 @@ return (
                     <Link href="/about">
                 <a>About</a>
                     </Link></li>
+                <li className="items-center text-white p-2 m-2">
+                    <Link href="/logout">
+                <a>Logout</a>
+                    </Link></li>
+ 
             </ul>
         </div>
 )
